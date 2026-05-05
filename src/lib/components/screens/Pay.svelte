@@ -1,68 +1,17 @@
-<script>
-  let selectedContact = $state(null);
-  let amount = $state('');
+<div class="screen" style="display: flex; flex-direction: column; height: 100vh;">
+  <header style="margin-bottom: 24px;">
+    <h1 style="margin: 0; font-size: 24px;">Send Money</h1>
+  </header>
 
-  function handleBack() {
-    selectedContact = null;
-  }
-
-  function handlePay() {
-    alert(`Paid $${amount} to ${selectedContact} successfully!`);
-    selectedContact = null;
-    amount = '';
-  }
-</script>
-
-{#if selectedContact}
-  <div class="screen animate-slide-up" style="padding: 20px; display: flex; flex-direction: column; height: 100%;">
-    <button onclick={handleBack} class="text-button" style="align-self: flex-start; margin-bottom: 40px;">← Back</button>
+  <div class="card" style="margin-bottom: 24px; padding: 24px;">
+    <label style="font-size: 14px; color: var(--text-secondary);">Recipient UPI ID</label>
+    <input type="text" placeholder="example@upi" style="width: 100%; border: none; border-bottom: 1px solid #e2e8f0; padding: 12px 0; font-size: 18px; outline: none; margin-bottom: 24px;" />
     
-    <div class="flex-center" style="flex-direction: column; flex: 1;">
-      <div class="avatar-huge">{selectedContact[0]}</div>
-      <h2 style="margin-top: 16px;">Paying {selectedContact}</h2>
-      <p>alex.rivera@premium.pay</p>
-      
-      <div class="amount-input" style="margin-top: 60px; display: flex; align-items: center; gap: 8px;">
-        <span style="font-size: 48px; font-weight: 700;">$</span>
-        <input 
-          type="number" 
-          placeholder="0"
-          bind:value={amount}
-          style="font-size: 64px; font-weight: 800; border: none; outline: none; width: 200px; background: transparent;" 
-          autofocus
-        />
-      </div>
-      <input 
-        type="text" 
-        placeholder="Add a note (optional)" 
-        style="margin-top: 20px; background: #f1f5f9; border: none; padding: 12px 20px; border-radius: 100px; width: 260px; text-align: center; outline: none;"
-      />
-    </div>
-    
-    <button 
-      class="pay-button"
-      disabled={!amount}
-      onclick={handlePay}
-    >
-      Pay Securely
-    </button>
+    <label style="font-size: 14px; color: var(--text-secondary);">Amount (₹)</label>
+    <input type="number" placeholder="0.00" style="width: 100%; border: none; border-bottom: 1px solid #e2e8f0; padding: 12px 0; font-size: 32px; font-weight: 700; outline: none;" />
   </div>
-{:else}
-  <div class="screen animate-fade-in" style="padding: 20px;">
-    <h1>Send Money</h1>
-    <div class="search-bar card flex-between" style="margin-top: 20px; padding: 12px 16px;">
-      <input type="text" placeholder="Search name, phone or UPI ID" style="border: none; outline: none; width: 100%; font-size: 15px;" />
-    </div>
-    <div class="section" style="margin-top: 30px;">
-      <h2>Recent Contacts</h2>
-      <div class="contact-grid">
-        {#each ['Sarah', 'John', 'Emma', 'Michael'] as name}
-          <button class="contact-item" style="background: none; border: none; cursor: pointer;" onclick={() => selectedContact = name}>
-            <div class="avatar-large">{name[0]}</div>
-            <span>{name}</span>
-          </button>
-        {/each}
-      </div>
-    </div>
-  </div>
-{/if}
+
+  <button style="width: 100%; background: var(--primary-gradient); color: white; border: none; padding: 16px; border-radius: var(--radius-lg); font-size: 16px; font-weight: 600; cursor: pointer;">
+    Proceed to Pay
+  </button>
+</div>
