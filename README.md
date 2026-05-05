@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# Premium UPI-style Mobile App UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, high-quality, and modern UPI-style payment app interface built for speed and premium feel.
 
-Currently, two official plugins are available:
+## Features
+- **PWA Ready:** Install it on your phone for a native app experience.
+- **Premium Design:** Soft gradients, modern typography, and clean layouts.
+- **Fast & Lightweight:** Built with React + Vite + Vanilla CSS.
+- **Responsive:** Optimized for mobile viewports.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Screens
+- **Home:** Balance visualization and quick actions.
+- **Scan:** Simulated QR scanner with animation.
+- **Pay:** Contact-based payment flow with amount entry.
+- **History:** Categorized transaction logs.
+- **Profile:** User settings and profile management.
 
-## React Compiler
+## How to Run in Termux
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Install Dependencies (if not done):**
+   ```bash
+   npm install
+   ```
 
-## Expanding the ESLint configuration
+2. **Start Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. **Access the App:**
+   Vite will provide a URL (usually `http://localhost:5173`). Open this in your mobile browser.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How to use as an "App" (PWA)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Open the URL in your browser (Chrome/Safari).
+2. Tap the **Menu** (or Share) icon.
+3. Select **"Add to Home Screen"**.
+4. The app will now appear on your home screen with its own icon and will run full-screen without browser bars.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Project Structure
+- `src/App.tsx`: Main application logic and screens.
+- `src/index.css`: Premium styles and global variables.
+- `vite.config.ts`: PWA and build configuration.
+- `public/favicon.svg`: High-resolution app icon.
