@@ -17,9 +17,10 @@ A sleek, high-quality, and modern UPI-style payment app interface built for spee
 
 ## How to Run in Termux
 
-1. **Install Dependencies (if not done):**
+1. **Install Dependencies:**
+   If you see any errors, use the "force" command:
    ```bash
-   npm install
+   npm install --force --legacy-peer-deps
    ```
 
 2. **Start Development Server:**
